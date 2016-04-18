@@ -119,7 +119,9 @@ var ViewPager = React.createClass({
   },
 
   componentDidMount() {
-    this.movePage(this.props.currentPage);
+    if (this.props.currentPage) {
+      this.movePage(this.props.currentPage);
+    }
     if (this.props.autoPlay) {
       this._startAutoPlay();
     }
