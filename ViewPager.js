@@ -39,6 +39,7 @@ var ViewPager = React.createClass({
     locked: PropTypes.bool,
     autoPlay: PropTypes.bool,
     animation: PropTypes.func,
+    currentPage: PropTypes.number,
   },
 
   fling: false,
@@ -59,10 +60,11 @@ var ViewPager = React.createClass({
   },
 
   getInitialState() {
+    let page = this.props.currentPage || 0;
     return {
-      currentPage: 0,
+      currentPage: page,
       viewWidth: 0,
-      scrollValue: new Animated.Value(0)
+      scrollValue: new Animated.Value(page)
     };
   },
 
