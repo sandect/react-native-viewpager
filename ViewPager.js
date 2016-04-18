@@ -60,11 +60,10 @@ var ViewPager = React.createClass({
   },
 
   getInitialState() {
-    let page = this.props.currentPage || 0;
     return {
-      currentPage: page,
+      currentPage: 0,
       viewWidth: 0,
-      scrollValue: new Animated.Value(page)
+      scrollValue: new Animated.Value(0)
     };
   },
 
@@ -120,6 +119,7 @@ var ViewPager = React.createClass({
   },
 
   componentDidMount() {
+    this.movePage(this.props.currentPage);
     if (this.props.autoPlay) {
       this._startAutoPlay();
     }
